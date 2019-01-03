@@ -1,7 +1,7 @@
 export function wxRes(xml) {
     const {MsgType , ...rest} = xml
     const type = MsgType[0]
-    console.log('type :' , type)
+    console.log('type :' , type , 'rest' , rest)
     switch (type) {
         case 'text':
             return text(rest)
@@ -24,8 +24,8 @@ function image(xml) {
     const med = MediaId[0]
     const id = MsgId[0]
 
-    const template=`<xml><ToUserName><![CDATA[${toUser}]]></ToUserName><FromUserName><![CDATA[${fromUser}]]></FromUserName><CreateTime>${time}</CreateTime><MsgType><![CDATA[${image}]]></MsgType><PicUrl><![CDATA[${url}]]></PicUrl><MediaId><![CDATA[${med}]]></MediaId><MsgId>${id}</MsgId></xml>`
-
+    const template=`<xml><ToUserName><![CDATA[${toUser}]]></ToUserName><FromUserName><![CDATA[${fromUser}]]></FromUserName><CreateTime>${time}</CreateTime><MsgType><![CDATA[image]]></MsgType><PicUrl><![CDATA[${url}]]></PicUrl><MediaId><![CDATA[${med}]]></MediaId><MsgId>${id}</MsgId></xml>`
+    // console.log('res xml image' , template)
     return template
 }
 
@@ -38,7 +38,7 @@ function text(xml) {
     CreateTime = CreateTime[0]
     const content = 'return content'
 
-    const template=`<xml><ToUserName><![CDATA[${to}}]]></ToUserName><FromUserName><![CDATA[${from}}]]></FromUserName><CreateTime>${CreateTime}</CreateTime><MsgType><![CDATA[text}]]></MsgType><Content><![CDATA[${content}}]]></Content></xml>`
-
+    const template=`<xml><ToUserName><![CDATA[${to}]]></ToUserName><FromUserName><![CDATA[${from}]]></FromUserName><CreateTime>${CreateTime}</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[${content}]]></Content></xml>`
+    // console.log('res xml text' , template)
     return template
 }
