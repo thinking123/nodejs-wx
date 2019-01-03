@@ -28,6 +28,8 @@ app.post('/wx' , (req , respond) => {
 
     let jsonString = '';
 
+    console.log("body" , req.body)
+    // console.log("body p" , req.body)
     req.on('data', function (data) {
         jsonString += data;
     });
