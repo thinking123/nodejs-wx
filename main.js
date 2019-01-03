@@ -1,6 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import {wxHashVerify , parseXML} from "./utils/wx-util";
+import {wxHashVerify , parseXML , resText} from "./utils/wx-util";
 import {wxRes} from "./utils/wx-respond";
 
 const app = express()
@@ -38,7 +38,7 @@ app.post('/wx' , (req , respond) => {
         const xml = jsonString
         parseXML(xml).then(res=>{
             console.log(res)
-            res = wxRes(res.xml)
+            res = resText(res.xml)
             console.log('return' , res)
             respond.send(res)
         }).catch(err=>{
