@@ -32,8 +32,8 @@ export function resText(xml) {
     // ToUserName = ToUserName[0]
     // FromUserName = FromUserName[0]
 
-    ToUserName = FromUserName[0]
-    FromUserName = ToUserName[0]
+    let to = FromUserName[0]
+    let from = ToUserName[0]
     CreateTime = CreateTime[0]
     const content = 'return content'
     // const obj = {
@@ -52,8 +52,9 @@ export function resText(xml) {
     // console.log(resXml)
     // return resXml
     
-const template=`<xml><ToUserName><![CDATA[${ToUserName}]]></ToUserName><FromUserName><![CDATA[${FromUserName}]]></FromUserName><CreateTime>${CreateTime}</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[${content}]]></Content></xml>`
+const template=`<xml><ToUserName><![CDATA[${to}]]></ToUserName><FromUserName><![CDATA[${from}]]></FromUserName><CreateTime>${CreateTime}</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[${content}]]></Content></xml>`
 
+    console.log('res xml' , template)
     return template
     
 }
