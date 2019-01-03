@@ -1,10 +1,10 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import {wxHashVerify , parseXML , resText} from "./utils/wx-util";
+import {wxHashVerify , parseXML} from "./utils/wx-util";
+import {wxRes} from "./utils/wx-respond";
 
 const app = express()
 const port = 80
-const token = 'verifytoken'
 
 // app.use(bodyParse)
 // parse application/x-www-form-urlencoded
@@ -26,7 +26,7 @@ app.get('/wx' , (req , res) => {
 
 app.post('/wx' , (req , respond) => {
 
-    var jsonString = '';
+    let jsonString = '';
 
     req.on('data', function (data) {
         jsonString += data;
@@ -38,7 +38,8 @@ app.post('/wx' , (req , respond) => {
         const xml = jsonString
         parseXML(xml).then(res=>{
             console.log(res)
-            res = resText(res.xml)
+            res = wxRes(res.xml)
+            console.log('return' , res)
             respond.send(res)
         }).catch(err=>{
             respond.send(`error : ${err}`)

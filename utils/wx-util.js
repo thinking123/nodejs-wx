@@ -29,28 +29,11 @@ export function resText(xml) {
     // const {ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId} = xml
     let {ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId} = xml
 
-    // ToUserName = ToUserName[0]
-    // FromUserName = FromUserName[0]
-
+    //此处注意，from 和 to的位置 原来的from是现在的to
     let to = FromUserName[0]
     let from = ToUserName[0]
     CreateTime = CreateTime[0]
     const content = 'return content'
-    // const obj = {
-    //     xml:
-    //         {
-    //             'ToUserName': ToUserName[0],
-    //             'FromUserName': FromUserName[0],
-    //             'CreateTime': CreateTime[0],
-    //             'MsgType': MsgType[0],
-    //             'Content': Content[0],
-    //             'MsgId': MsgId[0]
-    //         }
-    // }
-    // const builder = new Builder({cdata:true , xmldec:false})
-    // const resXml = builder.buildObject(obj)
-    // console.log(resXml)
-    // return resXml
     
 const template=`<xml><ToUserName><![CDATA[${to}]]></ToUserName><FromUserName><![CDATA[${from}]]></FromUserName><CreateTime>${CreateTime}</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[${content}]]></Content></xml>`
 
