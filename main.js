@@ -38,7 +38,7 @@ app.post('/wx' , (req , respond) => {
         const xml = jsonString
         parseXML(xml).then(res=>{
             console.log(res)
-            res = resText(res.xml)
+            res = wxRes(res.xml)
             console.log('return' , res)
             respond.send(res)
         }).catch(err=>{
