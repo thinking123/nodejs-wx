@@ -24,7 +24,7 @@ function image(xml) {
     const med = MediaId[0]
     // const id = MsgId[0]
 
-    const template=`<xml><ToUserName><![CDATA[${toUser}]]></ToUserName><FromUserName><![CDATA[${fromUser}]]></FromUserName><CreateTime>${time}</CreateTime><MsgType><![CDATA[image]]></MsgType><PicUrl><![CDATA[${url}]]></PicUrl><MediaId><![CDATA[${med}]]></MediaId></xml>`
+    const template=`<xml><ToUserName><![CDATA[${toUser}]]></ToUserName><FromUserName><![CDATA[${fromUser}]]></FromUserName><CreateTime>${time}</CreateTime><MsgType><![CDATA[image]]></MsgType><Image><MediaId><![CDATA[${med}]]></MediaId></Image></xml>`
     // console.log('res xml image' , template)
     return template
 }
