@@ -29,8 +29,11 @@ export function resText(xml) {
     // const {ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId} = xml
     let {ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId} = xml
 
-    ToUserName = ToUserName[0]
-    FromUserName = FromUserName[0]
+    // ToUserName = ToUserName[0]
+    // FromUserName = FromUserName[0]
+
+    ToUserName = FromUserName[0]
+    FromUserName = ToUserName[0]
     CreateTime = CreateTime[0]
     const content = 'return content'
     // const obj = {
