@@ -1,3 +1,4 @@
+import './index'
 import express from 'express'
 import bodyParser from 'body-parser'
 import registerRouter from './controller'
