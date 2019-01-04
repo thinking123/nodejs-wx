@@ -21,7 +21,7 @@ export async function get(url){
 
 export async function post(url , data = {}){
     return new Promise((resolve, reject) => {
-        request.post({url ,form: data },  function (err, response, body) {
+        request.post({url ,formData: data },  function (err, response, body) {
             if(err){
                 reject(err)
             }
