@@ -5,9 +5,12 @@ import {post , get} from "../utils/http";
 
 async function createMenu(req, res) {
 
+    console.log('body' , req.body)
+
+
     const token = await getAccessToken()
     const url = String.format(createMenuUrl, token)
-    const data = await post(url, req.body.menus ? req.body.menus : menus)
+    const data = await post(url, req.body && req.body.menus ? req.body.menus : menus)
     res.send(data)
 }
 
