@@ -22,7 +22,7 @@ export async function getAccessToken() {
     }
 
 
-    accessToken = await redis.getAsync(accessToken)
+    accessToken = await redis.getAsync(ACCESSTOKEN)
     console.log('get token' , accessToken)
     if(!accessToken){
         throw 'get access token failure'
