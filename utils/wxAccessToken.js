@@ -1,4 +1,4 @@
-import {ACCESSTOKENURL , ACCESSTOKEN } from "../constant/wx";
+import {ACCESSTOKENURL , ACCESSTOKEN ,ACCESSTOKENEXPIRESIN} from "../constant/wx";
 import redis from '../redis'
 import {get} from "./http";
 
@@ -18,7 +18,7 @@ export async function getAccessToken() {
         const {accessToken , expiresIn} = await _getAccessToken(true)
 
         console.log('get token ', accessToken , 'exp' , expiresIn)
-        await redis.setAsync(ACCESSTOKEN , accessToken , 'EX', expiresIn)
+        await redis.setAsync(ACCESSTOKEN , accessToken , 'EX', ACCESSTOKENEXPIRESIN)
     }
 
 

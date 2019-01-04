@@ -10,6 +10,7 @@ async function createMenu(req, res) {
 
     const token = await getAccessToken()
     const url = String.format(createMenuUrl, token)
+    console.log('url' , url)
     const data = await post(url, req.body && req.body.menus ? req.body.menus : menus)
     res.send(data)
 }

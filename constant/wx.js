@@ -1,7 +1,7 @@
 export const verifyToken = 'wxverifytoken'
 export const ACCESSTOKENURL = process.env.ACCESSTOKENURL
 export const ACCESSTOKEN = 'ACCESSTOKEN'
-export const ACCESSTOKENEXPIRESIN = 'ACCESSTOKENEXPIRESIN'
+export const ACCESSTOKENEXPIRESIN = 3600
 
 export const saveTempMediaUrl = 'https://api.weixin.qq.com/cgi-bin/media/upload?access_token={0}&type={1}'
 
