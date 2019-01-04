@@ -11,13 +11,16 @@ async function _getAccessToken(force = false){
 
 export async function getAccessToken() {
     const ttl = await redis.ttl(ACCESSTOKEN)
+    console.log('ttl ,' , ttl)
     if(ttl <= 0){
         const {accessToken , expiresIn} = await _getAccessToken(true)
+
         await redis.setAsync(ACCESSTOKEN , accessToken , expiresIn)
     }
 
 
     let accessToken = await redis.getAsync(accessToken)
+    console.log('get token' , accessToken)
     if(!accessToken){
         throw 'get access token failure'
     }
