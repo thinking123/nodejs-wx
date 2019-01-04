@@ -13,12 +13,12 @@ export async function getAccessToken() {
     // const ttl = await redis.ttlAsync(ACCESSTOKEN)
     // console.log('ttl ,' , ttl)
 
-    let accessToken = await redis.getAsync(accessToken)
+    let accessToken = await redis.getAsync(ACCESSTOKEN)
     if(!accessToken){
         const {accessToken , expiresIn} = await _getAccessToken(true)
 
         console.log('get token ', accessToken , 'exp' , expiresIn)
-        await redis.setAsync(ACCESSTOKEN , accessToken , expiresIn)
+        await redis.setAsync(ACCESSTOKEN , accessToken , 'EX', expiresIn)
     }
 
 
