@@ -1,10 +1,13 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import {wxHashVerify , parseXML , resText} from "./utils/wx-util";
+import registerRouter from './controller'
+import {wxHashVerify , parseXML , resText} from "./utils/wx-util-xml";
 import {wxRes} from "./utils/wx-respond";
 
 const app = express()
 const port = 80
+
+registerRouter(app)
 
 // app.use(bodyParse)
 // parse application/x-www-form-urlencoded
