@@ -18,7 +18,7 @@ app.get('/wx' , (req , res) => {
     const {signature , timestamp , nonce , echostr}= req.query
 
     if(wxHashVerify(signature , timestamp ,nonce)){
-        res.send('this is echo string')
+        res.send(echostr)
     }else{
         res.send('not equal hash')
     }
